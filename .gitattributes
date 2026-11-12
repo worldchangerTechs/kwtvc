@@ -1,0 +1,18 @@
+# Normalize line endings for all text files
+* text=auto
+
+# Force LF for web source files
+*.html text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+
+# Binary assets — no line-ending conversion
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary
