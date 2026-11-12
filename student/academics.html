@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Results — Kajiado West TVC Student Portal</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="app-shell">
+
+  <!-- Application Top Header -->
+  <header class="app-header">
+    <div style="display:flex; align-items:center; gap:var(--space-3);">
+      <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Menu">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="dashboard.html" class="header-brand">
+        <img class="header-logo" src="../assets/logo.png" alt="" width="40" height="40">
+        <div class="header-title-group">
+          <span class="header-title">Kajiado West TVC</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="user-profile-badge">
+        <span class="user-profile-name" data-user-name>Student</span>
+        <span class="user-profile-role" data-user-id>834/DICT/2023</span>
+      </div>
+
+      <button type="button" class="btn-header-logout" data-action="logout" title="Sign out">
+        <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Sign out</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+    <aside class="app-sidebar" aria-label="Student Navigation">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="dashboard.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="assignments.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>Assignments</span>
+            </span>
+            <span class="nav-counter" id="nav-assignments-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="announcements.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Announcements</span>
+            </span>
+            <span class="nav-counter" id="nav-announcements-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="fees.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Fees</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="timetable.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Timetable</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="academics.html" class="nav-link active">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Academics</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Profile</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <div class="page-header">
+        <div class="page-title-group">
+          <h1 class="page-title">Results</h1>
+        </div>
+
+        <div class="page-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-print-slip">
+            <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Standing & Mean Summary Grid -->
+      <section class="stats-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-label">Cumulative Mean Score</div>
+          <div class="stat-tile-value" id="acad-mean-score">81.6%</div>
+          <div class="stat-tile-sub">All completed modular series</div>
+        </div>
+
+        <div class="stat-tile accent-ochre">
+          <div class="stat-tile-label">Academic Standing</div>
+          <div class="stat-tile-value" style="font-size:1.35rem;" id="acad-standing">Good Standing</div>
+          <div class="stat-tile-sub">Distinction Classification Range</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-tile-label">Total Units Evaluated</div>
+          <div class="stat-tile-value" id="acad-units-count">7 Units</div>
+          <div class="stat-tile-sub">4 in progress (Continuous Assessment)</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-tile-label">Grading Standard</div>
+          <div class="stat-tile-value" style="font-size:1.15rem;">TVET CDACC</div>
+          <div class="stat-tile-sub">Competency Based Assessment</div>
+        </div>
+      </section>
+
+      <!-- Tables of Units with Marks and Grades by Term -->
+      <div id="academic-terms-container" style="display:flex; flex-direction:column; gap:var(--space-6);">
+        <!-- Injected via JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Institutional Footer -->
+  <footer class="portal-footer">
+    <div class="footer-primary">Kajiado West Technical and Vocational College, Ngong</div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="../js/store.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/student-academics.js"></script>
+</body>
+</html>

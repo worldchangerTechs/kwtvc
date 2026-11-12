@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fee Statement — Kajiado West TVC Student Portal</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="app-shell">
+
+  <!-- Application Top Header -->
+  <header class="app-header">
+    <div style="display:flex; align-items:center; gap:var(--space-3);">
+      <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Menu">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="dashboard.html" class="header-brand">
+        <img class="header-logo" src="../assets/logo.png" alt="" width="40" height="40">
+        <div class="header-title-group">
+          <span class="header-title">Kajiado West TVC</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="user-profile-badge">
+        <span class="user-profile-name" data-user-name>Student</span>
+        <span class="user-profile-role" data-user-id>834/DICT/2023</span>
+      </div>
+
+      <button type="button" class="btn-header-logout" data-action="logout" title="Sign out">
+        <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Sign out</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+    <aside class="app-sidebar" aria-label="Student Navigation">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="dashboard.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="assignments.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>Assignments</span>
+            </span>
+            <span class="nav-counter" id="nav-assignments-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="announcements.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Announcements</span>
+            </span>
+            <span class="nav-counter" id="nav-announcements-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="fees.html" class="nav-link active">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Fees</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="timetable.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Timetable</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="academics.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Academics</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="profile.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Profile</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+
+      <!-- Print-Only Official Header -->
+      <div class="print-only-header">
+        <img src="../assets/logo.png" alt="" width="72" height="72" style="margin-bottom:8px;">
+        <h2 style="font-size:1.5rem; margin-bottom:2px;">KAJIADO WEST TECHNICAL AND VOCATIONAL COLLEGE</h2>
+        <div style="font-size:0.9rem; font-weight:600;">Department of Computing and Informatics</div>
+        <div style="font-size:0.85rem; margin-top:4px;">P.O. Box 45-00209 Ngong Hills, Kenya | Tel: 0770 033765 | accounts@kwtvc.ac.ke</div>
+        <h3 style="font-size:1.2rem; margin-top:14px; text-decoration:underline;">OFFICIAL STUDENT FEE STATEMENT</h3>
+        <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:0.9rem; text-align:left;">
+          <div>
+            <div><strong>Student Name:</strong> <span id="print-student-name">Dennis Kiprop Tanui</span></div>
+            <div><strong>Admission Number:</strong> <span id="print-student-adm">834/DICT/2023</span></div>
+          </div>
+          <div>
+            <div><strong>Course:</strong> <span id="print-student-course">Diploma in ICT</span></div>
+            <div><strong>Printed On:</strong> <span id="print-date">15 Nov 2024</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div class="page-title-group">
+          <h1 class="page-title">Fees</h1>
+        </div>
+
+        <div class="page-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-print-fees">
+            <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Summary Metric Tiles -->
+      <section class="stats-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-label">Total Fee Invoiced</div>
+          <div class="stat-tile-value" id="fee-total-billed">KES 0.00</div>
+          <div class="stat-tile-sub">Tuition & Practical Levies</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-tile-label">Total Amount Paid</div>
+          <div class="stat-tile-value" id="fee-total-paid">KES 0.00</div>
+          <div class="stat-tile-sub">Bank Deposits & Paybill Receipts</div>
+        </div>
+
+        <div class="stat-tile accent-ochre" id="stat-tile-balance">
+          <div class="stat-tile-label">Outstanding Balance</div>
+          <div class="stat-tile-value" id="fee-balance">KES 0.00</div>
+          <div class="stat-tile-sub" id="fee-status-badge">Due before exam cards</div>
+        </div>
+
+        <div class="stat-tile">
+          <div class="stat-tile-label">Statement Status</div>
+          <div class="stat-tile-value" style="font-size:1.15rem;" id="fee-last-updated">—</div>
+          <div class="stat-tile-sub">Last updated by Accounts</div>
+        </div>
+      </section>
+
+      <!-- Detailed Accounting Ledger Table -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Statement
+          </h2>
+          <span style="font-size:0.8125rem; color:var(--color-text-muted);" id="fee-items-count">0 transactions</span>
+        </div>
+
+        <div class="panel-body" style="padding:0;">
+          <div class="table-responsive" style="border:none;">
+            <table class="ledger-table" id="fee-statement-table">
+              <thead>
+                <tr>
+                  <th style="width: 110px;">Date</th>
+                  <th style="width: 140px;">Reference</th>
+                  <th>Description</th>
+                  <th style="width: 100px; text-align:center;">Type</th>
+                  <th class="num" style="width: 120px;">Debit (KES)</th>
+                  <th class="num" style="width: 120px;">Credit (KES)</th>
+                  <th class="num" style="width: 130px;">Balance (KES)</th>
+                </tr>
+              </thead>
+              <tbody id="fee-ledger-body">
+                <!-- Injected via JS -->
+              </tbody>
+              <tfoot>
+                <tr class="ledger-total">
+                  <td colspan="4" style="text-align:right;">LEDGER TOTALS:</td>
+                  <td class="num" id="foot-total-debit">0.00</td>
+                  <td class="num" id="foot-total-credit">0.00</td>
+                  <td class="num" id="foot-final-balance">0.00</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Institutional Payment Instructions Box -->
+      <div class="panel" style="background-color:var(--color-paper-light); border:1px dashed var(--color-border-dark);">
+        <div class="panel-body">
+          <h3 style="font-size:1.05rem; color:var(--color-ink); margin-bottom:8px;">Authorized Payment Channels</h3>
+          <div class="form-row two-col" style="font-size:0.875rem; line-height:1.5;">
+            <div>
+              <p><strong>Option 1: Safaricom M-Pesa Paybill</strong></p>
+              <ul style="padding-left:18px; margin-top:4px;">
+                <li>Business No / Paybill: <strong class="text-mono">222111</strong></li>
+                <li>Account No: <strong class="text-mono" id="paybill-account-no">834/DICT/2023</strong> (Your Admission Number)</li>
+                <li>Enter Fee Amount and your M-Pesa PIN</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Option 2: Direct Bank Deposit</strong></p>
+              <ul style="padding-left:18px; margin-top:4px;">
+                <li>Bank: <strong>Kenya Commercial Bank (KCB) — Ngong Branch</strong></li>
+                <li>Account Name: <strong>Kajiado West TVC Student Fund</strong></li>
+                <li>Account Number: <strong class="text-mono">1189004455</strong></li>
+                <li>Present original deposit slip at Accounts Office Block B</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Institutional Footer -->
+  <footer class="portal-footer">
+    <div class="footer-primary">Kajiado West Technical and Vocational College, Ngong</div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="../js/store.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/student-fees.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Kajiado West TVC</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+
+  <main class="auth-container">
+    <div class="auth-card auth-card-wide">
+      <div class="auth-card-header">
+        <img class="auth-logo" src="assets/logo.png" alt="Kajiado West TVC crest" width="72" height="72">
+        <h1 class="auth-title">Create account</h1>
+        <div class="auth-subtitle">Kajiado West TVC Student Portal</div>
+      </div>
+
+      <div class="auth-alert" id="reg-alert" role="alert">
+        <span id="reg-alert-message"></span>
+      </div>
+
+      <form id="register-form" novalidate>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full name</label>
+            <input type="text" class="form-control" id="reg-name" name="fullName" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-admission">Admission number</label>
+            <input type="text" class="form-control" id="reg-admission" name="admissionNumber" placeholder="834/DICT/2023" required>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email</label>
+            <input type="email" class="form-control" id="reg-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Phone</label>
+            <input type="tel" class="form-control" id="reg-phone" name="phone" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label class="form-label" for="reg-national-id">National ID</label>
+            <input type="text" class="form-control" id="reg-national-id" name="nationalId">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-course">Course</label>
+            <select class="form-select" id="reg-course" name="course" required>
+              <option value="Diploma in Information Communication Technology (DICT)">Diploma in ICT</option>
+              <option value="Craft Certificate in Information Technology (CICT)">Certificate in ICT</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-sponsor">Sponsorship</label>
+          <select class="form-select" id="reg-sponsor" name="sponsor" required>
+            <option value="KUCCPS / Government Sponsored">Government sponsored</option>
+            <option value="Self-Sponsored">Self sponsored</option>
+          </select>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <input type="password" class="form-control" id="reg-password" name="password" autocomplete="new-password" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm-password">Confirm password</label>
+            <input type="password" class="form-control" id="reg-confirm-password" name="confirmPassword" autocomplete="new-password" required>
+          </div>
+        </div>
+
+        <label class="form-check" for="reg-terms">
+          <input type="checkbox" class="form-check-input" id="reg-terms" required>
+          <span class="form-check-label">I agree to the college ICT code of conduct</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block" id="btn-reg-submit">Register</button>
+      </form>
+
+      <div class="auth-card-footer">
+        Already registered? <a href="index.html">Sign in</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="portal-footer">
+    <div class="footer-primary">Kajiado West Technical and Vocational College, Ngong</div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

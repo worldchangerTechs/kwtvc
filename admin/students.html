@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students — Kajiado West TVC Admin Portal</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="app-shell">
+
+  <!-- Top Masthead -->
+  <header class="app-header">
+    <div style="display:flex; align-items:center; gap:var(--space-3);">
+      <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Menu">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="dashboard.html" class="header-brand">
+        <img class="header-logo" src="../assets/logo.png" alt="" width="40" height="40">
+        <div class="header-title-group">
+          <span class="header-title">Kajiado West TVC</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="user-profile-badge">
+        <span class="user-profile-name" data-user-name>Eng. Justus Mwangi</span>
+        <span class="user-profile-role">Staff</span>
+      </div>
+
+      <button type="button" class="btn-header-logout" data-action="logout" title="Sign out">
+        <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Sign out</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+    <aside class="app-sidebar" aria-label="Admin Navigation">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="dashboard.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="students.html" class="nav-link active">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Students</span>
+            </span>
+            <span class="nav-counter" id="nav-students-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="assignments.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>Assignments</span>
+            </span>
+            <span class="nav-counter" id="nav-assignments-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="announcements.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Announcements</span>
+            </span>
+            <span class="nav-counter" id="nav-announcements-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="fees.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Fees</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="submissions.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span>Submissions</span>
+            </span>
+            <span class="nav-counter" id="nav-submissions-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="timetable.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Timetable</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="activity.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Activity log</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <div class="page-header">
+        <div class="page-title-group">
+          <h1 class="page-title">Students</h1>
+        </div>
+
+        <div class="page-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-export-csv">
+            <svg class="icon icon-sm" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Export</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-open-add-student">
+            <svg class="icon icon-sm" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add student</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Course Filter Toolbar -->
+      <div class="ledger-toolbar">
+        <div class="ledger-search-box">
+          <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" class="form-control" id="search-students" placeholder="Search" aria-label="Search students">
+        </div>
+
+        <div class="ledger-filter-group">
+          <select class="form-select" id="filter-course" style="width: auto; min-width: 180px;">
+            <option value="ALL">All courses</option>
+            <option value="DICT">Diploma in ICT</option>
+            <option value="CICT">Certificate in ICT</option>
+          </select>
+
+          <select class="form-select" id="filter-sponsor" style="width: auto; min-width: 180px;">
+            <option value="ALL">All sponsorship</option>
+            <option value="KUCCPS">Government</option>
+            <option value="Self">Self sponsored</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Ledger Table -->
+      <div class="table-responsive">
+        <table class="ledger-table" id="students-table">
+          <thead>
+            <tr>
+              <th style="width: 130px;">Admission no.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th style="width: 80px; text-align:center;">Status</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="students-table-body">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add / Edit Student Modal -->
+  <div class="modal-backdrop" id="modal-student" aria-hidden="true" role="dialog" aria-labelledby="modal-student-title">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-student-title">Add New Student</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
+          <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form id="student-form" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="student-form-id">
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="stud-adm">Admission Number</label>
+              <input type="text" class="form-control" id="stud-adm" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="stud-name">Full Official Name</label>
+              <input type="text" class="form-control" id="stud-name" required>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="stud-email">Student Email Address</label>
+              <input type="email" class="form-control" id="stud-email" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="stud-phone">Phone Number</label>
+              <input type="tel" class="form-control" id="stud-phone" required>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label" for="stud-idno">National ID / Birth Cert</label>
+              <input type="text" class="form-control" id="stud-idno">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="stud-course">Course</label>
+              <select class="form-select" id="stud-course" required>
+                <option value="Diploma in Information Communication Technology (DICT)">Diploma in Information Communication Technology (DICT)</option>
+                <option value="Craft Certificate in Information Technology (CICT)">Craft Certificate in Information Technology (CICT)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="stud-sponsor">Sponsorship Category</label>
+              <select class="form-select" id="stud-sponsor" required>
+                <option value="Government Sponsored">Government Sponsored</option>
+                <option value="Self-Sponsored">Self sponsored</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="pwd-field-group">
+              <label class="form-label required" for="stud-pwd">Initial Portal Password</label>
+              <input type="password" class="form-control" id="stud-pwd">
+              <span class="form-hint" id="pwd-hint"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-student">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reset Password Modal -->
+  <div class="modal-backdrop" id="modal-reset-pwd" aria-hidden="true" role="dialog" aria-labelledby="modal-reset-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-reset-title">Reset Student Password</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
+          <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form id="reset-pwd-form" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="reset-student-id">
+          <p style="font-size:0.875rem; color:var(--color-text); margin-bottom:var(--space-3);" id="reset-student-info">
+            Setting new portal password for student.
+          </p>
+          <div class="form-group">
+            <label class="form-label required" for="reset-new-pwd">New Temporary Password</label>
+            <input type="password" class="form-control" id="reset-new-pwd" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-reset">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-backdrop" id="modal-delete-student" aria-hidden="true" role="dialog" aria-labelledby="modal-delete-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-delete-title" style="color:var(--color-brick);">Confirm Student Record Deletion</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
+          <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.875rem; color:var(--color-text); margin-bottom:var(--space-3);" id="delete-prompt-msg">
+          Are you sure you want to permanently delete this student record?
+        </p>
+        <div style="background-color:var(--color-brick-light); border:1px solid var(--color-brick); border-radius:var(--radius); padding:10px 12px; font-size:0.8125rem; color:var(--color-brick-dark);">
+          Warning: This action will permanently remove the student profile, associated coursework submissions, and academic transcripts from the portal. This cannot be undone.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
+        <button type="button" class="btn btn-danger" id="btn-confirm-delete">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Institutional Footer -->
+  <footer class="portal-footer">
+    <div class="footer-primary">Kajiado West Technical and Vocational College, Ngong</div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="../js/store.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/admin-students.js"></script>
+</body>
+</html>

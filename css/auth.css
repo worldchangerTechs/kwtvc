@@ -1,0 +1,330 @@
+/**
+ * Kajiado West Technical and Vocational College
+ * Sign in and registration — full-page campus background with blurred glass card.
+ */
+
+/* ---------------------------------------------------------------
+ * Shared: full-bleed campus background for both auth pages
+ * ------------------------------------------------------------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--color-ink-dark);
+}
+
+/* Background image layer */
+.auth-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('../assets/campus.jpg');
+  background-size: cover;
+  background-position: 42% 50%;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Dark tint overlay so the form pops */
+.auth-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 28, 18, 0.55);
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------------
+ * Scrollable container sits above the fixed background layers
+ * ------------------------------------------------------------- */
+.auth-container {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* generous vertical padding keeps the card reachable when page scrolls */
+  padding: var(--space-10) var(--space-4);
+}
+
+/* ---------------------------------------------------------------
+ * Glass card — blurred panel floating over the campus image
+ * ------------------------------------------------------------- */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  padding: var(--space-8);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.auth-card.auth-card-wide {
+  max-width: 640px;
+}
+
+/* ---------------------------------------------------------------
+ * Header inside the card
+ * ------------------------------------------------------------- */
+.auth-card-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto var(--space-4) auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+.auth-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.auth-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: var(--space-1);
+}
+
+/* ---------------------------------------------------------------
+ * Role switcher (Student / Staff)
+ * ------------------------------------------------------------- */
+.role-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius);
+  padding: 4px;
+  margin-bottom: var(--space-6);
+}
+
+.role-btn {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.role-btn.active {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------------------
+ * Form controls inside the glass card
+ * ------------------------------------------------------------- */
+.auth-card .form-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-card .form-control,
+.auth-card .form-select {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.auth-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.auth-card .form-control:focus,
+.auth-card .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.65);
+  outline: none;
+}
+
+/* Select arrow — white version */
+.auth-card .form-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+/* Select option legibility in browsers that show them on a plain bg */
+.auth-card .form-select option {
+  background-color: var(--color-ink-dark);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------
+ * Password toggle
+ * ------------------------------------------------------------- */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper .form-control {
+  padding-right: 44px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+}
+
+.password-toggle-btn:hover {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------
+ * Submit button
+ * ------------------------------------------------------------- */
+.auth-card .btn-block {
+  margin-top: var(--space-6);
+  padding: 13px 20px;
+}
+
+.auth-card .btn-primary {
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.auth-card .btn-primary:hover {
+  background-color: var(--color-ink-light);
+  border-color: var(--color-ink-light);
+}
+
+/* ---------------------------------------------------------------
+ * Footer / link row
+ * ------------------------------------------------------------- */
+.auth-card-footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.auth-card-footer a {
+  font-weight: 500;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-card-footer a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------------------------------------------------------------
+ * Checkbox (terms)
+ * ------------------------------------------------------------- */
+.auth-card .form-check-input {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-card .form-check-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------------------------------------------------------------
+ * Error / alert banner inside the card
+ * ------------------------------------------------------------- */
+.auth-card .auth-alert {
+  background-color: rgba(180, 35, 24, 0.35);
+  color: #ffd7d5;
+  border: 1px solid rgba(180, 35, 24, 0.5);
+}
+
+/* ---------------------------------------------------------------
+ * Footer bar at the very bottom of the page
+ * ------------------------------------------------------------- */
+.portal-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.auth-page .portal-footer {
+  color: rgba(255, 255, 255, 0.55);
+  padding: var(--space-5);
+  text-align: center;
+  font-size: 0.8125rem;
+}
+
+.auth-page .portal-footer .footer-primary {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------------------------------------------------------------
+ * Login page: remove old split layout — now full-bleed bg
+ * ------------------------------------------------------------- */
+.auth-split {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide the separate photo panel — background image replaces it */
+.auth-photo {
+  display: none;
+}
+
+.auth-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.auth-split .auth-container {
+  flex: 1;
+}
+
+/* Login card keeps same glass style */
+.auth-split .auth-card {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: var(--space-8);
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------------------------------------------------------------
+ * Responsive
+ * ------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-6) var(--space-5);
+    border-radius: 12px;
+  }
+}
+
+.reg-section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: var(--space-6) 0 var(--space-4) 0;
+}

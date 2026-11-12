@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable — Kajiado West TVC Admin Portal</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body class="app-shell">
+
+  <!-- Top Masthead -->
+  <header class="app-header">
+    <div style="display:flex; align-items:center; gap:var(--space-3);">
+      <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Menu">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="dashboard.html" class="header-brand">
+        <img class="header-logo" src="../assets/logo.png" alt="" width="40" height="40">
+        <div class="header-title-group">
+          <span class="header-title">Kajiado West TVC</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="user-profile-badge">
+        <span class="user-profile-name" data-user-name>Eng. Justus Mwangi</span>
+        <span class="user-profile-role">Staff</span>
+      </div>
+
+      <button type="button" class="btn-header-logout" data-action="logout" title="Sign out">
+        <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Sign out</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+    <aside class="app-sidebar" aria-label="Admin Navigation">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="dashboard.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Dashboard</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="students.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Students</span>
+            </span>
+            <span class="nav-counter" id="nav-students-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="assignments.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>Assignments</span>
+            </span>
+            <span class="nav-counter" id="nav-assignments-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="announcements.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Announcements</span>
+            </span>
+            <span class="nav-counter" id="nav-announcements-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="fees.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <span>Fees</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="submissions.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span>Submissions</span>
+            </span>
+            <span class="nav-counter" id="nav-submissions-count">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="timetable.html" class="nav-link active">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Timetable</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="activity.html" class="nav-link">
+            <span class="nav-link-main">
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Activity log</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Admin Identity at bottom -->
+    </aside>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <div class="page-header">
+        <div class="page-title-group">
+          <h1 class="page-title">Timetable</h1>
+        </div>
+
+        <div class="page-actions">
+          <button type="button" class="btn btn-primary btn-sm" id="btn-open-add-slot">
+            <svg class="icon icon-sm" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add session</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Schedule Master Table -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Sessions
+          </h2>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <select class="form-select" id="filter-timetable-day" style="width:auto; padding:4px 30px 4px 10px; font-size:0.8rem;">
+              <option value="ALL">All Days (Monday — Friday)</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel-body" style="padding:0;">
+          <div class="table-responsive" style="border:none;">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th style="width: 100px;">Day</th>
+                  <th style="width: 130px;">Time</th>
+                  <th style="width: 100px;">Unit Code</th>
+                  <th>Unit</th>
+                  <th style="width: 160px;">Room</th>
+                  <th style="width: 160px;">Lecturer</th>
+                  <th style="width: 100px; text-align:center;">Type</th>
+                  <th style="width: 100px; text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-timetable-body">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add / Edit Session Modal with Overlap Prevention -->
+  <div class="modal-backdrop" id="modal-slot" aria-hidden="true" role="dialog" aria-labelledby="modal-slot-title">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-slot-title">Schedule Timetable Session</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">
+          <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form id="slot-form" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="slot-day-orig">
+          <input type="hidden" id="slot-index-orig">
+
+          <!-- Overlap Warning Banner in Modal -->
+          <div id="slot-conflict-alert" class="auth-alert" style="display:none; margin-bottom:var(--space-3);">
+            <svg class="icon icon-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span id="slot-conflict-msg">Room overlap detected.</span>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="slot-day">Day of Week</label>
+              <select class="form-select" id="slot-day" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="slot-department">Department</label>
+              <input type="text" class="form-control" id="slot-department" value="Department of Computing and Informatics" required>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="slot-start-time">Start Time</label>
+              <input type="time" class="form-control" id="slot-start-time" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="slot-end-time">End Time</label>
+              <input type="time" class="form-control" id="slot-end-time" required>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="slot-unit-code">Unit Code</label>
+              <input type="text" class="form-control" id="slot-unit-code" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="slot-unit-title">Unit Title</label>
+              <input type="text" class="form-control" id="slot-unit-title" required>
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label class="form-label required" for="slot-room">Room / Laboratory Venue</label>
+              <select class="form-select" id="slot-room" required>
+                <option value="Computing Lab 1">Computing Lab 1 (Main Lab)</option>
+                <option value="Computing Lab 2">Computing Lab 2 (Software Lab)</option>
+                <option value="Cisco Networking Lab">Cisco Networking Lab</option>
+                <option value="Lecture Theatre 1 (LT-1)">Lecture Theatre 1 (LT-1)</option>
+                <option value="Lecture Theatre 2 (LT-2)">Lecture Theatre 2 (LT-2)</option>
+                <option value="Room C-04">Room C-04</option>
+                <option value="Room C-02">Room C-02</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label required" for="slot-lecturer">Lecturer / Instructor</label>
+              <input type="text" class="form-control" id="slot-lecturer" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label required" for="slot-type">Session Type</label>
+            <select class="form-select" id="slot-type" required>
+              <option value="Lecture">Lecture (Theory)</option>
+              <option value="Lab">Hands-on Laboratory Practical</option>
+              <option value="Consultation">Consultation & Project Mentorship</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-slot">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Institutional Footer -->
+  <footer class="portal-footer">
+    <div class="footer-primary">Kajiado West Technical and Vocational College, Ngong</div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="../js/store.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/admin-timetable.js"></script>
+</body>
+</html>
